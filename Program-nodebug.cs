@@ -16,7 +16,6 @@ namespace NotificationsRename
         static void Main(string[] args)
         {
             Console.WriteLine("Starting");
-            Console.WriteLine("Set up output file " + destination);
 			//connect to AF
             string pisysname = "PISystemName"; //edit with your server name!
             string Afdbname = "AFDB Name"; // edit with your server name!
