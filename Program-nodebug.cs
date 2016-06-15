@@ -17,15 +17,9 @@ namespace NotificationsRename
         {
             Console.WriteLine("Starting");
             Console.WriteLine("Set up output file " + destination);
-            //connect to pi server
-            string servername = ConfigurationSettings.AppSettings["PIServerName"];
-            Console.WriteLine("Connecting to PI Server " + servername);
-            Server PIServer = new PISDK.PISDK().Servers[servername];
-            PIServer.Open();
-            Console.WriteLine("Connected to PI Server " + servername);
 			//connect to AF
-            string pisysname = ConfigurationSettings.AppSettings["PISystemName"];
-            string Afdbname = ConfigurationSettings.AppSettings["afdb"];
+            string pisysname = "PISystemName"; //edit with your server name!
+            string Afdbname = "AFDB Name"; // edit with your server name!
             Console.WriteLine("Connecting to AF DB " + Afdbname + " on " + pisysname);
             PISystem PISys = new PISystems()[pisysname];
             AFDatabase AFDb = PISys.Databases[Afdbname];
@@ -67,8 +61,6 @@ namespace NotificationsRename
             AFDb.Refresh();
             Console.WriteLine("Press enter to quit");
             Console.ReadLine();
-            //close pi connection
-            PIServer.Close();
 
         }
     }
